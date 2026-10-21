@@ -20,10 +20,6 @@ if [[ ! -S "/tmp/.X11-unix/X$DISPLAY_NUMBER" ]]; then
     echo "No X11 socket found for DISPLAY=$DISPLAY. Check your desktop session's DISPLAY." >&2
     exit 1
 fi
-if ! command -v xauth >/dev/null 2>&1; then
-    echo "Install xauth on the host (sudo apt install xauth) and run this script again." >&2
-    exit 1
-fi
 if ! DOCKER_RUNTIMES=$(docker info --format '{{range $name, $runtime := .Runtimes}}{{$name}} {{end}}'); then
     echo "Cannot access Docker. Check that the daemon is running and your user has permission to use it." >&2
     exit 1
@@ -32,29 +28,37 @@ fi
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 REPO_DIR=$(cd -- "$SCRIPT_DIR/.." && pwd)
 
-# Keep the cookie in a private host directory. The file must be readable by the
-# image's user, whose UID may differ. FamilyWild matches the container hostname.
-XAUTH_DIR=$(mktemp -d /tmp/pxl-lyrical-xauth.XXXXXX)
-cleanup() {
-    rm -f -- "$XAUTH_DIR/Xauthority"
-    rmdir -- "$XAUTH_DIR"
-}
-trap cleanup EXIT
-touch "$XAUTH_DIR/Xauthority"
-XAUTH_ENTRIES=$(xauth -i nlist "$DISPLAY")
-if [[ -z "$XAUTH_ENTRIES" ]]; then
-    echo "No Xauthority cookie found for DISPLAY=$DISPLAY. Run from your desktop terminal and check XAUTHORITY." >&2
-    exit 1
+# WSLg can provide an X11 socket without an Xauthority file. Forward a cookie
+# only when one exists; otherwise let the X server handle access.
+XAUTH_ENTRIES=
+XAUTH_SOURCE=${XAUTHORITY:-$HOME/.Xauthority}
+if [[ -f "$XAUTH_SOURCE" ]]; then
+    if ! command -v xauth >/dev/null 2>&1; then
+        echo "Install xauth on the host (sudo apt install xauth) and run this script again." >&2
+        exit 1
+    fi
+    XAUTH_ENTRIES=$(xauth -i nlist "$DISPLAY")
 fi
-printf '%s\n' "$XAUTH_ENTRIES" | sed 's/^..../ffff/' | xauth -f "$XAUTH_DIR/Xauthority" nmerge -
-chmod 644 "$XAUTH_DIR/Xauthority"
 
 DOCKER_OPTS=("-it" "--rm" "--name=pxl_lyrical_novnc" "--hostname=pxl_lyrical_novnc")
 DOCKER_OPTS+=("--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro")
 # Xwayland may create a group-writable socket rather than a world-writable one.
 DOCKER_OPTS+=("--group-add=$(stat -c %g "/tmp/.X11-unix/X$DISPLAY_NUMBER")")
-DOCKER_OPTS+=("--volume=$XAUTH_DIR/Xauthority:/tmp/pxl.Xauthority:ro")
-DOCKER_OPTS+=("--env" "DISPLAY=$DISPLAY" "--env" "XAUTHORITY=/tmp/pxl.Xauthority")
+DOCKER_OPTS+=("--env" "DISPLAY=$DISPLAY")
+if [[ -n "$XAUTH_ENTRIES" ]]; then
+    # The image's UID may differ. FamilyWild matches the container hostname.
+    XAUTH_DIR=$(mktemp -d /tmp/pxl-lyrical-xauth.XXXXXX)
+    cleanup() {
+        rm -f -- "$XAUTH_DIR/Xauthority"
+        rmdir -- "$XAUTH_DIR"
+    }
+    trap cleanup EXIT
+    touch "$XAUTH_DIR/Xauthority"
+    printf '%s\n' "$XAUTH_ENTRIES" | sed 's/^..../ffff/' | xauth -f "$XAUTH_DIR/Xauthority" nmerge -
+    chmod 644 "$XAUTH_DIR/Xauthority"
+    DOCKER_OPTS+=("--volume=$XAUTH_DIR/Xauthority:/tmp/pxl.Xauthority:ro")
+    DOCKER_OPTS+=("--env" "XAUTHORITY=/tmp/pxl.Xauthority")
+fi
 for directory in Commands/bin ExampleCode Data Projects; do
     DOCKER_OPTS+=("-v" "$REPO_DIR/$directory:/home/user/${directory##*/}")
 done
