@@ -1,0 +1,11 @@
+.git
+.agents
+.codex
+.aws
+**/build
+**/install
+**/log
+**/__pycache__
+Data
+ExampleCode
+tests

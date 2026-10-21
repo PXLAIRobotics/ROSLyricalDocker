@@ -1,0 +1,13 @@
+source /opt/ros/lyrical/setup.bash
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+if [[ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash ]]; then
+    source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+fi
+if [[ -f "$HOME/Projects/ros2_workspace/install/local_setup.bash" ]]; then
+    source "$HOME/Projects/ros2_workspace/install/local_setup.bash"
+fi
+alias ll='ls --color=auto -alFh'
+clean_and_rebuild_ros2_workspace() {
+    bash "$HOME/bin/remove_colcon_dirs_and_rebuild_in_ros2_workspace" || return
+    source "$HOME/Projects/ros2_workspace/install/setup.bash"
+}
