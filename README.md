@@ -107,6 +107,30 @@ To build for another non-root account, pass Docker build arguments:
 ./001_build_pxl_ros2_lyrical_image.sh --build-arg USER_UID=1001 --build-arg USER_GID=1001
 ```
 
+## AR.Drone simulation
+
+The self-contained [AR.Drone workspace](Projects/ardrone_workspace/README.md)
+supports ROS 2 single- and multi-drone flight in Gazebo Jetty, including the
+recreated `summerforall`, `sternformost`, `rommel`, and `glasshouse` worlds.
+It needs no extra source repositories, drone SDKs, or downloaded Gazebo models.
+
+```sh
+ros2 launch ardrone_gazebo single_ardrone.launch.py world:=summerforall
+# Or: ros2 launch ardrone_gazebo multi_ardrones.launch.py count:=4 world:=glasshouse
+```
+
+The image builds this workspace upfront into `/opt/ardrone_workspace/install`
+and sources it automatically. Its editable source is already part of the shared
+`Projects` bind mount, just like `ros2_workspace`. Keeping the image install in
+`/opt` means mounting `Projects` does not hide the prebuilt package.
+
+After editing the source, run `colcon build --symlink-install` in
+`~/Projects/ardrone_workspace` and source `install/local_setup.bash`. New shells
+and container starts automatically prefer that locally built workspace. Source
+edits require a local rebuild or an image rebuild to take effect.
+
+See the workspace guide for flight commands, topics, limitations and tests.
+
 ## ROS, simulation, and graphics checks
 
 Inside the container:
@@ -185,6 +209,7 @@ Run container-level checks after building:
 
 ```sh
 ./tests/smoke.sh
+./tests/ardrone-image.sh  # Prebuilt workspace, bind mounts, and local overlay
 ```
 
 The smoke check verifies Ubuntu/ROS versions, packages, workspace compilation,

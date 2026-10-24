@@ -14,6 +14,7 @@ RUN if id ubuntu &>/dev/null; then userdel -r ubuntu; fi \
     && chmod 440 /etc/sudoers.d/developer
 ENV HOME=/home/user
 COPY docker/bashrc /etc/ros-workshop.bashrc
+COPY docker/source-workspaces.bash /etc/ros-workshop-workspaces.bash
 COPY docker/entrypoint.sh /usr/local/bin/ros-entrypoint
 COPY --chown=user docker/tmux.conf /home/user/.tmux.conf
 COPY --chown=user docker/vimrc /home/user/.vimrc
@@ -21,6 +22,8 @@ COPY docker/install-user-config.sh /usr/local/bin/install-workshop-user-config
 COPY --chown=user docker/rviz-persistent-settings /home/user/.rviz2/persistent_settings
 COPY docker/rviz-persistent-settings /etc/ros-workshop-rviz-settings
 COPY --chown=user Projects /home/user/Projects
+COPY docker/build-ardrone-workspace.sh /tmp/build-ardrone-workspace.sh
+RUN bash /tmp/build-ardrone-workspace.sh && rm /tmp/build-ardrone-workspace.sh
 COPY --chown=user Commands/bin /home/user/bin
 RUN mkdir -p "$HOME/Data" "$HOME/ExampleCode" \
     && echo 'source /etc/ros-workshop.bashrc' >> "$HOME/.bashrc" \

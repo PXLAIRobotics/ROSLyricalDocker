@@ -5,8 +5,5 @@ mkdir -p "$HOME/.rviz2"
 if [[ ! -e "$HOME/.rviz2/persistent_settings" ]]; then
     cp /etc/ros-workshop-rviz-settings "$HOME/.rviz2/persistent_settings"
 fi
-source /opt/ros/lyrical/setup.bash
-if [[ -f "$HOME/Projects/ros2_workspace/install/setup.bash" ]]; then
-    source "$HOME/Projects/ros2_workspace/install/setup.bash"
-fi
+source /etc/ros-workshop-workspaces.bash
 exec "$@"

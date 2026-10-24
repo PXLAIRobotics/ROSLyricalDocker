@@ -1,0 +1,3611 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.10">
+  <world name="ardrone_world">
+    <gravity>0 0 -9.81</gravity>
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.7 0.8 0.9 1</background>
+    </scene>
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="ground">
+        <visual name="ground">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.6 0.6 0.6 1</ambient>
+            <diffuse>0.6 0.6 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="ground">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="sternformost">
+      <static>true</static>
+      <pose>1 -1 0.01 0 -0 0</pose>
+      <link name="floor_map">
+        <visual name="map">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>25.5325 18.45</size>
+            </plane>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+            <pbr>
+              <metal>
+                <albedo_map>textures/sternformost.png</albedo_map>
+                <metalness>0</metalness>
+                <roughness>1</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="map">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>25.5325 18.45</size>
+            </plane>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="turtlebot3_waffle">
+      <static>true</static>
+      <pose>0.7 7 0 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>-0.064 0 0.057 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.266 0.266 0.094</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>-0.064 0 0.057 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.266 0.266 0.094</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0.067 0 0.111 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.012 0.132 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0.067 0 0.111 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.012 0.132 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>-0.177 0.064001 0.005 -1.57 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.009 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>-0.177 0.064001 0.005 -1.57 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.009 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>-0.177 -0.063999 0.005 -1.57 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.009 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>-0.177 -0.063999 0.005 -1.57 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.009 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.049 0 0.1255 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0315</length>
+              <radius>0.055</radius>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.049 0 0.1255 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0315</length>
+              <radius>0.055</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="part_1">
+        <pose>0 0 0 0 -0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.018</length>
+              <radius>0.033</radius>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.018</length>
+              <radius>0.033</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <link name="part_2">
+        <pose>0 0 0 0 -0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.018</length>
+              <radius>0.033</radius>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.018</length>
+              <radius>0.033</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box">
+      <static>true</static>
+      <pose>1.81214 7.11711 0.15 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone">
+      <static>true</static>
+      <pose>3.68525 7.77988 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_0">
+      <static>true</static>
+      <pose>5.59986 6.90652 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_1">
+      <static>true</static>
+      <pose>7.37449 7.76458 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_2">
+      <static>true</static>
+      <pose>7.94937 7.76293 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_3">
+      <static>true</static>
+      <pose>8.52674 7.75106 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_4">
+      <static>true</static>
+      <pose>9.14127 7.72545 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_5">
+      <static>true</static>
+      <pose>9.76627 7.71253 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_6">
+      <static>true</static>
+      <pose>10.3793 7.73644 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_7">
+      <static>true</static>
+      <pose>11.4126 6.94621 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_8">
+      <static>true</static>
+      <pose>12.1109 6.47127 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_9">
+      <static>true</static>
+      <pose>12.4853 5.73472 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_10">
+      <static>true</static>
+      <pose>12.5411 4.98198 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_11">
+      <static>true</static>
+      <pose>13.0258 3.77059 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_12">
+      <static>true</static>
+      <pose>12.8158 3.17827 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_13">
+      <static>true</static>
+      <pose>12.5079 2.47605 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_14">
+      <static>true</static>
+      <pose>12.1998 1.74946 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_15">
+      <static>true</static>
+      <pose>10.773 0.466588 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_16">
+      <static>true</static>
+      <pose>10.4521 -0.244272 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_17">
+      <static>true</static>
+      <pose>9.96522 -0.821192 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cardboard_box_clone_18">
+      <static>true</static>
+      <pose>9.38673 -1.33126 0.159 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.65 0.42 0.20 1</diffuse>
+            <ambient>0.65 0.42 0.20 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block">
+      <static>true</static>
+      <pose>11.1694 1.08922 0 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone">
+      <static>true</static>
+      <pose>6.73357 7.77294 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_0">
+      <static>true</static>
+      <pose>12.5301 4.54947 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_1">
+      <static>true</static>
+      <pose>8.83823 -1.64621 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_2">
+      <static>true</static>
+      <pose>9.00743 -2.7951 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_3">
+      <static>true</static>
+      <pose>8.22194 -3.94986 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_4">
+      <static>true</static>
+      <pose>8.78789 -4.99504 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_5">
+      <static>true</static>
+      <pose>8.12413 -6.36939 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_6">
+      <static>true</static>
+      <pose>8.42837 -7.91357 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_7">
+      <static>true</static>
+      <pose>6.70664 -8.63171 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_8">
+      <static>true</static>
+      <pose>5.54649 -9.81416 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_9">
+      <static>true</static>
+      <pose>4.75562 -8.74628 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_10">
+      <static>true</static>
+      <pose>3.83177 -8.21757 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_11">
+      <static>true</static>
+      <pose>3.19467 -7.26423 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_12">
+      <static>true</static>
+      <pose>2.28719 -6.01394 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_13">
+      <static>true</static>
+      <pose>2.48576 -4.46298 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_14">
+      <static>true</static>
+      <pose>4.43089 -2.04657 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_15">
+      <static>true</static>
+      <pose>4.95021 0.660579 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_16">
+      <static>true</static>
+      <pose>6.09943 2.77098 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="cinder_block_clone_17">
+      <static>true</static>
+      <pose>5.12909 5.16538 0.009476 2.3e-05 0.000119 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 0.08465 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43495 0.0339 0.2032</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>0 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.18625 0 0.1016 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.0339 0.1354 0.203</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="Dumpster">
+      <static>true</static>
+      <pose>-2.53109 4.05249 0 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="oak_tree">
+      <static>true</static>
+      <pose>-5.7862 -1.04031 0 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.2 0.45 0.12 1</diffuse>
+            <ambient>0.2 0.45 0.12 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="table">
+      <static>true</static>
+      <pose>1.53339 -0.45252 0 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.8 0.03</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.8 0.03</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>-0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>-0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>-0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>-0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="mars_rover">
+      <static>true</static>
+      <pose>-10.8786 6.94182 0 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 -0.06945 0.47293 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.87974 0.8821 0.02602</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 -0.06945 0.47293 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.87974 0.8821 0.02602</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_1">
+          <pose>0 -0.05 0.31475 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.49522 0.67401 0.28915</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_1">
+          <pose>0 -0.05 0.31475 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.49522 0.67401 0.28915</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_2">
+          <pose>0.30107 0.3835 0.38976 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04442 0.38897 0.07918</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_2">
+          <pose>0.30107 0.3835 0.38976 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04442 0.38897 0.07918</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_3">
+          <pose>-0.30107 0.3835 0.38976 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04442 0.38897 0.07918</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_3">
+          <pose>-0.30107 0.3835 0.38976 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04442 0.38897 0.07918</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_4">
+          <pose>0 0.59414 0.38976 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.56656 0.04442 0.07918</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_4">
+          <pose>0 0.59414 0.38976 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.56656 0.04442 0.07918</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_5">
+          <pose>0 0.47 0.32114 0.69137 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43774 0.212366 0.05173</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_5">
+          <pose>0 0.47 0.32114 0.69137 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43774 0.212366 0.05173</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_6">
+          <pose>0.22615 0.32897 0.33193 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.19338 0.16304</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_6">
+          <pose>0.22615 0.32897 0.33193 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.19338 0.16304</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_7">
+          <pose>0.22615 0.471 0.39308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_7">
+          <pose>0.22615 0.471 0.39308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_8">
+          <pose>0.22615 0.45 0.35308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_8">
+          <pose>0.22615 0.45 0.35308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_9">
+          <pose>0.22615 0.39308 0.31308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_9">
+          <pose>0.22615 0.39308 0.31308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_10">
+          <pose>-0.22615 0.32897 0.33193 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.19338 0.16304</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_10">
+          <pose>-0.22615 0.32897 0.33193 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.19338 0.16304</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_11">
+          <pose>-0.22615 0.471 0.39308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_11">
+          <pose>-0.22615 0.471 0.39308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_12">
+          <pose>-0.22615 0.45 0.35308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_12">
+          <pose>-0.22615 0.45 0.35308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_13">
+          <pose>-0.22615 0.39308 0.31308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_13">
+          <pose>-0.22615 0.39308 0.31308 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01116 0.15 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_14">
+          <pose>0 0.30047 0.32114 2.26207 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43774 0.212366 0.05173</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_14">
+          <pose>0 0.30047 0.32114 2.26207 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.43774 0.212366 0.05173</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_15">
+          <pose>0.31103 -0.32115 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_15">
+          <pose>0.31103 -0.32115 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_16">
+          <pose>-0.31103 -0.32115 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_16">
+          <pose>-0.31103 -0.32115 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_17">
+          <pose>0.31103 0.28049 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_17">
+          <pose>0.31103 0.28049 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+        <collision name="shape_18">
+          <pose>-0.31103 0.28049 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="shape_18">
+          <pose>-0.31103 0.28049 0.1358 1.5707 0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.1358</radius>
+              <length>0.1641</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="Construction Cone">
+      <static>true</static>
+      <pose>-11.2744 5.08036 0 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="Construction Cone_clone">
+      <static>true</static>
+      <pose>-10.0993 3.37709 0.01 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="Construction Cone_clone_0">
+      <static>true</static>
+      <pose>-9.31761 0.743027 0.01 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="Construction Cone_clone_1">
+      <static>true</static>
+      <pose>-7.2461 -0.817649 0.01 0 -0 0</pose>
+      <link name="part_0">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shape_0">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.55 0.55 1</diffuse>
+            <ambient>0.55 0.55 0.55 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
