@@ -111,12 +111,16 @@ To build for another non-root account, pass Docker build arguments:
 
 The self-contained [AR.Drone workspace](Projects/ardrone_workspace/README.md)
 supports ROS 2 single- and multi-drone flight in Gazebo Jetty, including the
-recreated `summerforall`, `sternformost`, `rommel`, and `glasshouse` worlds.
+recreated `summerforall`, `sternformost`, `rommel`, and `glasshouse` worlds,
+plus a hillside `orchard` with detailed apple trees and one launch platform per
+drone (up to 32).
 It needs no extra source repositories, drone SDKs, or downloaded Gazebo models.
 
 ```sh
 ros2 launch ardrone_gazebo single_ardrone.launch.py world:=summerforall
-# Or: ros2 launch ardrone_gazebo multi_ardrones.launch.py count:=4 world:=glasshouse
+# Or: ros2 launch ardrone_gazebo multi_ardrones.launch.py count:=10 world:=orchard
+# Interactive world, fleet, battery and drift settings:
+~/Projects/ardrone_workspace/tools/start_sim.sh
 ```
 
 The image builds this workspace upfront into `/opt/ardrone_workspace/install`

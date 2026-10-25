@@ -3,8 +3,9 @@ import math
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from .model import drone, element, plugin
+from .orchard import add_platforms
 
-WORLDS = ('empty', 'summerforall', 'sternformost', 'rommel', 'glasshouse')
+WORLDS = ('empty', 'summerforall', 'sternformost', 'rommel', 'glasshouse', 'orchard')
 
 
 def build_world(world_dir, world_name, names, spacing=1.5, cameras=True):
@@ -19,6 +20,9 @@ def build_world(world_dir, world_name, names, spacing=1.5, cameras=True):
     world.set('name', 'ardrone_world')
     for uri in world.iter('albedo_map'):
         uri.text = str(Path(world_dir) / uri.text)
+    for uri in world.findall('.//mesh/uri'):
+        if not uri.text.startswith('file://') and '://' not in uri.text:
+            uri.text = (Path(world_dir) / uri.text).resolve().as_uri()
     physics = element(world, 'physics', name='physics', type='ignored')
     element(physics, 'max_step_size', 0.002)
     element(physics, 'real_time_factor', 1)
@@ -29,8 +33,13 @@ def build_world(world_dir, world_name, names, spacing=1.5, cameras=True):
     if cameras:
         plugin(world, 'sensors', 'Sensors', render_engine='ogre2')
     columns = math.ceil(math.sqrt(len(names)))
-    for i, name in enumerate(names):
-        world.append(drone(name, (i % columns) * spacing, (i // columns) * spacing, cameras))
+    spawns = (add_platforms(world, len(names), spacing) if world_name == 'orchard' else
+              [((i % columns)*spacing, (i // columns)*spacing, .09) for i in range(len(names))])
+    for name, (x, y, z) in zip(names, spawns):
+        aircraft = drone(name, x, y, cameras,
+                         Path(world_dir).parent / 'meshes/ardrone_gazebo.dae')
+        aircraft.find('pose').text = f'{x} {y} {z} 0 0 0'
+        world.append(aircraft)
     ET.indent(tree)
     return ET.tostring(tree.getroot(), encoding='unicode')
 

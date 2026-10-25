@@ -11,6 +11,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from .simulation import WORLDS, bridges, build_world
 from .flight import Flight
+from .disturbance import Disturbance
 
 
 def boolean(value):
@@ -22,13 +23,18 @@ def boolean(value):
 def setup(context):
     value = lambda name: LaunchConfiguration(name).perform(context)
     count = int(value('count'))
+    disturbance_params = dict(disturbances=boolean(value('disturbances')),
+                              drift_speed=float(value('drift_speed')),
+                              wind_x=float(value('wind_x')), wind_y=float(value('wind_y')))
+    Disturbance(**disturbance_params)
     Flight(float(value('takeoff_height')), float(value('command_timeout')))
     if not 1 <= count <= 32:
         raise ValueError('count must be between 1 and 32')
     cameras, gui = boolean(value('cameras')), boolean(value('gui'))
     name = value('name')
     names = [name] if count == 1 else [f'{name}_{i+1}' for i in range(count)]
-    world_dir = Path(get_package_share_directory('ardrone_gazebo')) / 'worlds'
+    package_dir = Path(get_package_share_directory('ardrone_gazebo'))
+    world_dir = package_dir / 'worlds'
     world = build_world(world_dir, value('world'), names, float(value('spacing')), cameras)
     directory = tempfile.TemporaryDirectory(prefix='ardrone_sim_')
     world_file = Path(directory.name) / 'world.sdf'
@@ -38,6 +44,8 @@ def setup(context):
     command = ['gz', 'sim', '-r', '-v', '2']
     if not gui:
         command += ['-s', '--headless-rendering']
+    else:
+        command += ['--gui-config', str(package_dir / 'config' / 'gui.config')]
     command.append(str(world_file))
     simulator = ExecuteProcess(cmd=command, output='screen')
     actions = [
@@ -52,6 +60,7 @@ def setup(context):
     for drone_name in names:
         actions.append(Node(package='ardrone_gazebo', executable='flight_controller',
                             namespace=drone_name, output='screen', parameters=[{
+                                **disturbance_params,
                                 'use_sim_time': True,
                                 'takeoff_height': float(value('takeoff_height')),
                                 'command_timeout': float(value('command_timeout'))}]))
@@ -68,5 +77,9 @@ def description(count='1'):
         DeclareLaunchArgument('spacing', default_value='1.5', description='Spawn grid spacing in metres'),
         DeclareLaunchArgument('takeoff_height', default_value='1.0', description='Height above launch surface'),
         DeclareLaunchArgument('command_timeout', default_value='0.5', description='Seconds before hovering'),
+        DeclareLaunchArgument('disturbances', default_value='false', description='Enable hover drift and wind-like bias'),
+        DeclareLaunchArgument('drift_speed', default_value='0.08', description='Maximum drift per world axis, m/s (0–0.5)'),
+        DeclareLaunchArgument('wind_x', default_value='0.1', description='World X wind-like velocity bias, m/s (-0.5–0.5)'),
+        DeclareLaunchArgument('wind_y', default_value='0.0', description='World Y wind-like velocity bias, m/s (-0.5–0.5)'),
         OpaqueFunction(function=setup),
     ])
