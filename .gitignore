@@ -3,5 +3,6 @@
 **/log/
 **/__pycache__/
 *.log
+ardrone_control.tar.gz
 Data/*
 !Data/.gitkeep
