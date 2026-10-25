@@ -162,6 +162,60 @@ package. Like the simulator launcher, it builds its local package when needed
 and sources the workspace before launching.
 Add `--dry-run` to print the command without building or starting the GUI.
 
+### Install the GUI from the lecture archive
+
+The GUI sources are distributed separately as `ardrone_control.tar.gz`; they
+are not included in a fresh Git clone. First follow the repository's
+[container setup instructions](../../README.md#browser-desktop) to build and
+start the ROS desktop environment.
+
+Download the lecture archive and move `ardrone_control.tar.gz` into the root
+of your cloned `ROSLyricalDocker` repository (the folder containing this
+repository's top-level `README.md`). In a **host terminal**, change to that
+repository root and extract it into the source workspace:
+
+```bash
+tar -xzf ardrone_control.tar.gz \
+  -C Projects/ardrone_workspace/src
+```
+
+This creates `Projects/ardrone_workspace/src/ardrone_control/package.xml` and
+the GUI source files. The `Projects` folder is shared with the container, so
+extraction also works while the container is running. No Docker image rebuild
+is needed. The archive and GUI sources are ignored by Git.
+
+Open a terminal **inside the container's graphical desktop** and start the
+simulation:
+
+```bash
+~/Projects/ardrone_workspace/tools/start_sim.sh
+```
+
+For a first run, choose one drone; the other defaults are fine. Leave that
+terminal running. Open a **second terminal in the same container desktop**
+and start the GUI:
+
+```bash
+~/Projects/ardrone_workspace/tools/start_gui.sh
+```
+
+Choose `ardrone` for one drone, or `ardrone_1`, `ardrone_2`, etc. for a fleet,
+then select QWERTY or AZERTY. The launcher builds the GUI on first use, sources
+the local workspace, and opens the window. The repository's image already
+includes PyQt5 and the required ROS dependencies.
+
+Wait for **Connected**, click a camera to enable keyboard control, and press
+**T** to take off, **Space** to hover, or **L** to land. Open **Details** for
+movement shortcuts and speed settings. Recharge becomes available only when
+landed and the recharge service is ready.
+
+If the launcher reports that `ardrone_control` is unavailable, check that the
+archive was extracted into `src/ardrone_control`, without an extra nested
+directory. If telemetry stays on **Waiting**, check that the simulation is
+running and that the GUI namespace matches the selected drone. After installing
+a newer archive, close the GUI and rerun `start_gui.sh`; changed sources rebuild
+automatically.
+
 ## Simulated battery
 
 Each drone controller owns an independent battery, initially at 100%. The GUI

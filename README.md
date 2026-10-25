@@ -116,6 +116,9 @@ plus a hillside `orchard` with detailed apple trees and one launch platform per
 drone (up to 32).
 It needs no extra source repositories, drone SDKs, or downloaded Gazebo models.
 
+For the separately distributed lecture GUI archive, follow the
+[GUI installation and startup instructions](Projects/ardrone_workspace/README.md#install-the-gui-from-the-lecture-archive).
+
 ```sh
 ros2 launch ardrone_gazebo single_ardrone.launch.py world:=summerforall
 # Or: ros2 launch ardrone_gazebo multi_ardrones.launch.py count:=10 world:=orchard
