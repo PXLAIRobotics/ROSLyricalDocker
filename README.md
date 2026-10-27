@@ -7,6 +7,20 @@ simulation worlds, helper commands, and mounted folder layout from
 
 The desktop uses **Xfce, TigerVNC, and noVNC**. No Kasm components are used.
 
+## Screenshots
+
+**Development desktop** — Xfce with RViz and a terminal showing the ROS 2
+Lyrical, Ubuntu, and OpenCV environment. Access this desktop through noVNC or a
+native VNC client.
+
+![Xfce development desktop with RViz and a ROS 2 Lyrical terminal](docs/screenshots/development-desktop.png)
+
+**Multi-drone simulation** — six AR.Drones on their launch platforms in the
+Gazebo Jetty orchard world. See the [AR.Drone simulation](#ardrone-simulation)
+section for launch commands and workspace details.
+
+![Six AR.Drones on launch platforms in the Gazebo orchard simulation](docs/screenshots/ardrone-orchard.png)
+
 ## Requirements
 
 - Docker Engine (Linux) or Docker Desktop (macOS/Windows).
